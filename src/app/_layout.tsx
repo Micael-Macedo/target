@@ -1,4 +1,5 @@
 import { Stack } from 'expo-router'
+
 import {
     useFonts,
     Inter_400Regular,
@@ -8,6 +9,8 @@ import {
 } from "@expo-google-fonts/inter"
 import { colors } from '@/theme/colors'
 
+import Loading from './components/Loading'
+
 export default function Layout() {
     const [fontsLoaded] =
     useFonts({
@@ -16,11 +19,10 @@ export default function Layout() {
         Inter_700Bold
     })
 
-
     if(!fontsLoaded){
-        return
+        return <Loading />
     }
-    
+
     console.log("PASSOU PELO LAYOUT PRIMEIRO!")
     return <Stack
         screenOptions={{
